@@ -1,7 +1,7 @@
 package routes
 
 import (
-    controller "server/controllers"
+    controller "github.com/Brekke-Green/beta-book/controllers" 
     "github.com/gin-gonic/gin"
 )
 

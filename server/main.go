@@ -4,7 +4,7 @@ import (
         "time"
         "net/http"
 
-        routes "github.com/Brekke-Green/beta-book/server/routes" 
+        routes "github.com/Brekke-Green/beta-book/routes" 
         "github.com/gin-gonic/gin"
         "github.com/gin-contrib/cors"
 )
