@@ -9,13 +9,13 @@ import (
         "github.com/gin-contrib/cors"
 )
 
-type boulder struct {
+type climb struct {
         Name   string `json:"name"`
         Setter string `json:"setter"`
         Grade  string `json:"grade"`
 }
 
-var boulders = []boulder{
+var climb = []climb{
         {Name: "Brick", Setter: "Brekke", Grade: "V4"},
         {Name: "Slick", Setter: "Brekke", Grade: "V6"},
         {Name: "Trick", Setter: "Brekke", Grade: "V2"},
@@ -39,22 +39,22 @@ func main() {
         router.Run("localhost:8080")
 }
 
-func getBoulders(c *gin.Context) {
+func getClimbs(c *gin.Context) {
         c.IndentedJSON(http.StatusOK, boulders)
 }
 
-func postBoulder(c *gin.Context) {
+func postClimb(c *gin.Context) {
     c.
 }
 
-func updateBoulder(c *gin.Context) {
+func updateClimb(c *gin.Context) {
 
 }
 
-func deleteBoulder(c *gin.Context) {
+func deleteClimb(c *gin.Context) {
 
 }
 
-func  patchBoulder(c *gin.Context) {
+func patchClimb(c *gin.Context) {
 
 }
