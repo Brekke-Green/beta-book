@@ -15,7 +15,7 @@ type climb struct {
         Grade  string `json:"grade"`
 }
 
-var climb = []climb{
+var climbs = []climb{
         {Name: "Brick", Setter: "Brekke", Grade: "V4"},
         {Name: "Slick", Setter: "Brekke", Grade: "V6"},
         {Name: "Trick", Setter: "Brekke", Grade: "V2"},
@@ -40,11 +40,11 @@ func main() {
 }
 
 func getClimbs(c *gin.Context) {
-        c.IndentedJSON(http.StatusOK, boulders)
+        c.IndentedJSON(http.StatusOK, climbs)
 }
 
 func postClimb(c *gin.Context) {
-    c.
+    
 }
 
 func updateClimb(c *gin.Context) {
