@@ -1,8 +1,11 @@
 package main
 
 import (
-        "time"
+        "log"
         "net/http"
+        "time"
+        "github.com/Brekke-Green/beta-book/db"
+        
 
         routes "github.com/Brekke-Green/beta-book/routes" 
         "github.com/gin-gonic/gin"
@@ -22,6 +25,10 @@ var climbs = []climb{
 }
 
 func main() {
+        _, err := db.NewDatabase()
+        if err != nil {
+            log.Fatalf("could not initialize db connection: %s", err)
+        }
         router := gin.Default()
         router.Use(cors.New(cors.Config{
                 AllowOrigins:     []string{"http://localhost:5173"},
