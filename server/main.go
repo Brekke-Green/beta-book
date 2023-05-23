@@ -39,22 +39,22 @@ func main() {
         router.Run("localhost:8080")
 }
 
-func getClimbs(c *gin.Context) {
-        c.IndentedJSON(http.StatusOK, climbs)
-}
+// func getClimbs(c *gin.Context) {
+//        c.IndentedJSON(http.StatusOK, climbs)
+//}
 
-func postClimb(c *gin.Context) {
+//func postClimb(c *gin.Context) {
     
-}
+//}
 
-func updateClimb(c *gin.Context) {
+//func updateClimb(c *gin.Context) {
 
-}
+//}
 
-func deleteClimb(c *gin.Context) {
+//func deleteClimb(c *gin.Context) {
 
-}
+//}
 
-func patchClimb(c *gin.Context) {
+//func patchClimb(c *gin.Context) {
 
-}
+//}
