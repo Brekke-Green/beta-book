@@ -11,10 +11,10 @@ dropdb:
 	docker exec -it postgres dropdb beta-book-db
 
 migrateup:
-	 migrate -path server/db/migrations -database "postgresql://root:password@localhost:5433/beta-book-db?sslmode=disable" -verbose up
+	 migrate -path db/migrations -database "postgresql://root:password@localhost:5433/beta-book-db?sslmode=disable" -verbose up
 
 migratedown:
-	 migrate -path server/db/migrations -database "postgresql://root:password@localhost:5433/beta-book-db?sslmode=disable" -verbose down
+	 migrate -path db/migrations -database "postgresql://root:password@localhost:5433/beta-book-db?sslmode=disable" -verbose down
 
 .PHONY: postgresinit postgres createdb dropdb migrateup migratedown
 
