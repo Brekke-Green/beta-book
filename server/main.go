@@ -1,15 +1,13 @@
 package main
 
 import (
-        "log"
-        "net/http"
-        "time"
-        "github.com/Brekke-Green/beta-book/db"
-        
+	"log"
 
-        routes "github.com/Brekke-Green/beta-book/routes" 
-        "github.com/gin-gonic/gin"
-        "github.com/gin-contrib/cors"
+	"github.com/Brekke-Green/beta-book/db"
+	"github.com/Brekke-Green/beta-book/internal/router"
+	"github.com/Brekke-Green/beta-book/internal/user"
+
+//	routes "github.com/Brekke-Green/beta-book/routes"
 )
 
 type climb struct {
@@ -25,25 +23,17 @@ var climbs = []climb{
 }
 
 func main() {
-        _, err := db.NewDatabase()
+        dbConn, err := db.NewDatabase()
         if err != nil {
             log.Fatalf("could not initialize db connection: %s", err)
         }
-        router := gin.Default()
-        router.Use(cors.New(cors.Config{
-                AllowOrigins:     []string{"http://localhost:5173"},
-                AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
-                AllowHeaders:     []string{"Content-Type"},
-                ExposeHeaders:    []string{"Content-Length"},
-                AllowCredentials: true,
-                MaxAge: 12 * time.Hour,
-        }))
+    
+        userRep := user.NewRepository(dbConn.GetDB())
+        userSvc := user.NewService(userRep)
+        userHandler := user.NewHandler(userSvc)
 
-        routes.AuthRoutes(router)
-        routes.UserRoutes(router)
-
-
-        router.Run("localhost:8080")
+        router.InitRouter(userHandler)
+        router.Start("localhost:8080")
 }
 
 // func getClimbs(c *gin.Context) {
