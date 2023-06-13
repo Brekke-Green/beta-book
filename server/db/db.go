@@ -10,12 +10,12 @@ type Database struct {
 }
 
 func NewDatabase() (*Database, error) {
-    db, err := sql.Open("postgres", "postgresql://root:password@localhost:5433/bete-book-db?sslmode=disable")
+    db, err := sql.Open("postgres", "postgresql://root:password@localhost:5433/beta-book-db?sslmode=disable")
     if err != nil {
         return nil, err
     }
 
-    return &Database(db: db), nil
+    return &Database{db: db}, nil
 }
 
 func (d *Database) Close() {
